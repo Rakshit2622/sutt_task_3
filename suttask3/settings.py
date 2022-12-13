@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dating.apps.DatingConfig',
+    'moderator.apps.ModeratorConfig',
     'Users.apps.UsersConfig',
     'crispy_forms',
     'allauth',
@@ -146,6 +147,12 @@ LOGIN_REDIRECT_URL = '/'
 
 
 LOGIN_URL = 'login'
+
+
+MOD_LOGIN_REDIRECT_URL = 'mod_home/'
+
+
+MOD_LOGIN_URL = 'mod_login'
 
 # Additional configuration settings
 SOCIALACCOUNT_QUERY_EMAIL = True

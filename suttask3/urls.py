@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path , include
 from dating import views as dating_views
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
+from moderator import views as moderator_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +27,10 @@ urlpatterns = [
     path('accounts/' , include('allauth.urls')),
     path('login/',auth_views.LoginView.as_view(template_name='Users/login.html'),name='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name='Users/logout.html') , name='logout'),
+    path('mod_home/', moderator_views.mod_home ,name='mod_home'),
+    path('mod_login/',auth_views.LoginView.as_view(template_name='Users/mod_login.html'),name='mod_login'),
+
 ]
 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
