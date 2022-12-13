@@ -1,0 +1,22 @@
+{% extends "dating/base.html" %}
+
+{% block content %}
+
+  {% for profile in profile %}
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" >{{ profile.city }}</a>
+          <small class="text-muted">{{ profile.user_name }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ profile.name }}</a></h2>
+
+        <div class="text-centre">
+          <img height="500" width="700" src="{{ profile.image.url }}">
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+  
+
+{% endblock content %}
