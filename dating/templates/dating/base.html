@@ -31,11 +31,11 @@
 	        <!-- Navbar Right Side -->
 	        <div class="navbar-nav">
 	        	{% if user.is_authenticated %}
-	        		<a class="nav-item nav-link" href="#">Profile</a>
+	        		<a class="nav-item nav-link" href="{% url 'profile' %}">Your Profile</a>
 	        		<a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
 	        	{% else %}	
 	          		<a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-	          		<a class="nav-item nav-link" href="#">Register</a>
+	          		<a class="nav-item nav-link" href="{% url 'mod_login' %}">Mod-Login</a>
 	          	{% endif %}
 	        </div>
 	      </div>
@@ -52,9 +52,9 @@
 	        <h3>Sidebar</h3>
 	        <p class='text-muted'>
 	          <ul class="list-group">
-	            <li class="list-group-item list-group-item-light"><a href="#">View Profiles</li>
+	            <li class="list-group-item list-group-item-light"><a href="{% url 'home' %}">View Profiles</li>
 	            <li class="list-group-item list-group-item-light">Announcements</li>
-	            <li class="list-group-item list-group-item-light">Your votes</li>
+	            <li class="list-group-item list-group-item-light">Requests</li>
 	          </ul>
 	        </p>
 	      </div>

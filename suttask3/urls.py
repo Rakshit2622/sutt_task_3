@@ -16,19 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 from dating import views as dating_views
+from Users import views as Users_views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 from moderator import views as moderator_views
+from dating.views import ProfileListView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',dating_views.home,name='home'),
+    path('',ProfileListView.as_view(),name='home'),
     path('accounts/' , include('allauth.urls')),
     path('login/',auth_views.LoginView.as_view(template_name='Users/login.html'),name='login'),
     path('logout/',auth_views.LogoutView.as_view(template_name='Users/logout.html') , name='logout'),
     path('mod_home/', moderator_views.mod_home ,name='mod_home'),
     path('mod_login/',auth_views.LoginView.as_view(template_name='Users/mod_login.html'),name='mod_login'),
+    path('profile' ,Users_views.profile,name='profile')
 
 ]
 
